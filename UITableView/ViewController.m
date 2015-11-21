@@ -25,6 +25,7 @@
     //self.tableView.dataSource = self;
     //self.tableView.delegate = self;
     //[self.tableView registerClass:[UITableViewCell class ]forCellReuseIdentifier:@"Cell"];
+    self.title = @"Beautiful Girls";
     models = [[NSMutableArray alloc]init];
     Model *model1 = [Model new];
     model1.name = @"Ngoc Trinh";
@@ -42,7 +43,8 @@
     model3.measure = @"100-100-100";
     model3.imageFile = @"rebecca.png";
     [models addObject:model3];
-     self.tableView.separatorColor = [UIColor redColor];
+    self.tableView.separatorColor = [UIColor redColor];
+    
     
     
 }
@@ -54,11 +56,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
-//    }
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
@@ -72,6 +72,8 @@
     
     UILabel *measureLabel = (UILabel *)[cell viewWithTag:102];
     measureLabel.text = model.measure;
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    
 //    cell = [cell initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:@"Cell"];
 //    cell.textLabel.text = @"Techmaster";
 //    cell.textLabel.textColor = [UIColor blueColor];
